@@ -1,6 +1,8 @@
 # DDHCustomTransition
 Helper classes to make basic view controller transitions easier 
 
+![](https://raw.githubusercontent.com/dasdom/DDHCustomTransition/master/DDHCustomTransition/what.gif)
+
 ## Installation
 Add **CustomTransition.swift** to your project.
 
