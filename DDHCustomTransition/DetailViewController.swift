@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DetailViewController.swift
 //  DDHCustomTransition
 //
 //  Created by dasdom on 21.02.15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, TransitionInfoProtocol {
+class DetailViewController: UIViewController, TransitionInfoProtocol {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
@@ -27,10 +27,9 @@ class ViewController: UIViewController, TransitionInfoProtocol {
             let labelCopy = UILabel()
             labelCopy.text = label.text
             labelCopy.font = label.font
-            labelCopy.backgroundColor = view.backgroundColor
+            labelCopy.backgroundColor = label.backgroundColor
             return labelCopy
         }
         return UIView()
     }
 }
-
