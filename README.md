@@ -15,21 +15,17 @@ Add **CustomTransition.swift** to your project.
 The `TransitionInfoProtocol` defines two required and one optional methods:
 
 ```swift
-/* Return the views which shoud be animated in the transition
- */
+// Return the views which shoud be animated in the transition
 func viewsToAnimate() -> [UIView]
 
-/* Return a copy of the view which is passed in
-   The passed in view is one of the views to animate
- */
+// Return a copy of the view which is passed in. The passed in view is one of the views to animate
 func copyForView(subView: UIView) -> UIView
 
 /* Optionally return the frames for the views which should be
    animated. This is needed sometimes because for example
    with custom container view contrllers the transitioning code
    can't figure out where on screen the view is actually visible
-   when loaded.
- */
+   when loaded. */
 optional func frameForView(subView: UIView) -> CGRect
 ```
 
