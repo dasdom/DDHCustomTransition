@@ -17,7 +17,7 @@ class AppDetailViewController: UIViewController, TransitionInfoProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let imageName = appData?[imageKey], name = appData?[nameKey] {
+        if let imageName = appData?[imageKey], let name = appData?[nameKey] {
             iconImageView.image = UIImage(named: imageName)
             appNameLabel.text = name
         }
@@ -28,7 +28,7 @@ class AppDetailViewController: UIViewController, TransitionInfoProtocol {
         return [iconImageView, appNameLabel]
     }
     
-    func copyForView(subView: UIView) -> UIView {
+    func copyForView(_ subView: UIView) -> UIView {
         if subView == iconImageView {
             return UIImageView(image: iconImageView.image)
         } else {

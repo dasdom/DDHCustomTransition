@@ -17,7 +17,7 @@ class ViewController: UIViewController, TransitionInfoProtocol {
         return [imageView, label]
     }
     
-    func copyForView(subView: UIView) -> UIView {
+    func copyForView(_ subView: UIView) -> UIView {
         if subView == imageView {
             let imageViewCopy = UIImageView(image: imageView.image)
             imageViewCopy.contentMode = imageView.contentMode
