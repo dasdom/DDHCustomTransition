@@ -28,7 +28,7 @@ import UIKit
 
 class CustomTransition: NSObject, UIViewControllerAnimatedTransitioning {
   
-  var operation: UINavigationControllerOperation = .push
+  var operation: UINavigationController.Operation = .push
   
   func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
     let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! TransitionInfoProtocol
@@ -40,7 +40,7 @@ class CustomTransition: NSObject, UIViewControllerAnimatedTransitioning {
     containerView.addSubview(toViewController.view)
     
     if operation == .pop {
-      containerView.bringSubview(toFront: fromViewController.view)
+      containerView.bringSubviewToFront(fromViewController.view)
     }
     
     toViewController.view.setNeedsLayout()
@@ -83,7 +83,7 @@ class CustomTransition: NSObject, UIViewControllerAnimatedTransitioning {
       toViewController.view.frame = fromViewController.view.frame.offsetBy(dx: fromViewController.view.frame.size.width, dy: 0)
     }
     
-    UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, options: UIViewAnimationOptions(), animations: { () -> Void in
+    UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, options: [], animations: { () -> Void in
       if self.operation == .pop {
         fromViewController.view.frame = fromViewController.view.frame.offsetBy(dx: fromViewController.view.frame.size.width, dy: 0)
       } else {
@@ -116,7 +116,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
   var recipeInteractiveTransition: UIPercentDrivenInteractiveTransition?
   let customTransition = CustomTransition()
   
-  func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+  func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     
     customTransition.operation = operation
     return customTransition
